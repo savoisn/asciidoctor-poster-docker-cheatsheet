@@ -1,0 +1,30 @@
+version: '3'
+
+env_file: .env
+
+services:
+  proxy:
+    port: "8080:8080"
+    image: nginx:1.15.2
+    networks: 
+      - frontend
+  web:
+    build:
+      context: ./dir
+      dockerfile: Dockerfile-alternate
+
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/config
+    networks: 
+      - database
+      - frontend
+  redis:
+    image: redis
+    networks: database
+
+networks:
+  database:
+  frontend:
+

@@ -1,0 +1,114 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+== Docker Compose Command
+
+[frame=none, grid=none, stripes="none", cols="33a,~,33a,~,33a"]
+!===
+! 
+### General Usage
+.build the container from docker-compose.yml
+[source, shell]
+----
+docker-compose build
+----
+.specify non default compose file
+[source, shell]
+----
+docker-compose -f myConfig.yml run backup
+----
+.specify a project name
+[source, shell]
+----
+docker-compose -p myproject run backup
+----
+used by compose to define container name with `docker ps`, defaults to the folder name
+
+.create an alias for docker-compose
+[source, shell]
+----
+alias dc='docker-compose'
+----
+will save you a lot of typing :)
+!
+!
+### Managing Composed Services
+
+.run the services in foreground
+[source, shell]
+----
+docker-compose up
+----
+.run the services in background
+[source, shell]
+----
+docker-compose up -d
+----
+.run only one service
+[source, shell]
+----
+docker-compose up web
+----
+.stop & remove all services, volmes & network
+[source, shell]
+----
+docker-compose down
+----
+.stop one service
+[source, shell]
+----
+docker-compose stop web
+----
+.restart a stoped service
+[source, shell]
+----
+docker-compose start web
+----
+.remove a container associated with service 
+[source, shell]
+----
+docker-compose rm web
+----
+.stop and remove everything
+[source, shell]
+----
+docker-compose rm -vfs web
+----
+!
+!
+### Debuging Composed Services
+
+.Running Commands in started container
+[source, shell]
+----
+docker-compose exec web sh
+----
+
+.Running commands in container
+[source, shell]
+----
+docker-compose exec web sh
+----
+
+.follow logs of the containers
+[source, shell]
+----
+docker-compose logs -f --tail=10
+----
+tail only display 10 lines of history,
+useful when compose runs for a long time...
+
+.display running services
+[source, shell]
+----
+docker-compose ps
+----
+.validate compose config and show compose file
+[source, shell]
+----
+docker-compose config
+----
+
+!===

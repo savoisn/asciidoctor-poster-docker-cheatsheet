@@ -1,0 +1,60 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+== docker-compose.yml
+
+[frame=none, grid=none, stripes="none", cols="38a,~,60a"]
+!===
+! 
+[source,yml]
+----
+version: '3'
+
+services: <1>
+  proxy: <2>
+    image: nginx:1.15.2 <3>
+    ports:  <4>
+      - "8080:8080"
+    networks: <5>
+      - frontend
+  web: <2>
+    env_file: env.env <6>
+    build: <7>
+      context: ./dir
+      dockerfile: Dockerfile-alternate
+      args: 
+        - MyARG=NicoAsArg
+    ports: <4>
+      - "5000:5000"
+    volumes: <8>
+      - .:/config
+    depends_on: <9>
+      - postgresql
+    networks:  <5>
+      - database
+      - frontend
+  postgresql: <2>
+    image: postgresql <3>
+    networks:  <5>
+      - database
+
+networks: <5>
+  database:
+  frontend:
+----
+!
+! <1> *_services_* : docker compose run services, 
+<2> *_services names_* : each services is referenced in docker-compose using its service name and not the docker sha or docker name
+<3> *_images_* : instruct docker-compose that the service will use a _raw_ image for the service execution
+<4> *_ports_* : maps container port to host port
+<5> *_networks_* : segragates services between network for discovery and security.
+In this example, proxy will never have access to the postgres database. But can refer to web as a known hostname, and web can access postgresql with postgresql hostname.
+<6> *_env_file_* : set list of environment variable available in the container from a file on the host - only available during execution, not build.
+<7> *_build_* : instruct docker-compose to build the container from a Dockerfile.
+Dockerfile filename and path can be overiden as described
+<8> *_volumes_* : volumes from host can also be mounted in the container
+<9> *_depends_on_* : wait for depended services to be started - doesn't mean it's ready, just that compose has started the depended service.
+watch the other side of the poster for more info on service dependencies
+!===

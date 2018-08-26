@@ -1,0 +1,66 @@
+base:
+  font_color: #333333
+  font_family: Roboto
+  font_size: 12
+
+vertical_spacing: $base_line_height_length
+
+page:
+  layout: landscape
+  margin: [0.51in, 0.5in, 0.25in, 0.5in]
+  size: A2
+
+heading:
+  font_family: Roboto
+  font_color: #262626
+  font_size: 40 
+  font_style: bold
+  line_height: 1.2
+  margin_bottom: 9
+
+link:
+  font_color: #002FA7
+outline_list:
+  indent: $base_font_size * 1.5
+
+code:
+  font_family: M+ 1mn
+  font_color: #ffffff
+  padding: 2
+
+conum:
+  font_color: #999999
+  font_family: M+ 1mn
+
+block:
+  margin_bottom: 6
+
+font:
+  catalog:
+    Roboto:
+      normal: roboto-normal.ttf
+      italic: roboto-italic.ttf
+      bold: roboto-bold.ttf
+      bold_italic: roboto-bold_italic.ttf
+    M+ 1mn:
+      normal: mplus1mn-regular-ascii-conums.ttf
+      bold: mplus1mn-bold-ascii.ttf
+      italic: mplus1mn-italic-ascii.ttf
+      bold_italic: mplus1mn-bold_italic-ascii.ttf
+    # M+ 1p supports Latin, Latin-1 Supplement, Latin Extended, Greek, Cyrillic, Vietnamese, Japanese & an assortment of symbols
+    # It also provides arrows for ->, <-, => and <= replacements in case these glyphs are missing from font
+    M+ 1p Fallback:
+      normal: mplus1p-regular-fallback.ttf
+      bold: mplus1p-regular-fallback.ttf
+      italic: mplus1p-regular-fallback.ttf
+      bold_italic: mplus1p-regular-fallback.ttf
+  fallbacks:
+    - M+ 1p Fallback
+
+
+
+#table:
+  #cell:
+    #padding: [10,10,10,32]
+  #background_color: #ffffff
+

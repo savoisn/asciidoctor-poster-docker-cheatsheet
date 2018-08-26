@@ -1,0 +1,53 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+=== Building Images
+
+.Build an image from a Dockerfile in same dir
+[source, shell]
+----
+$ docker build -t myImage .
+----
+
+.Force rebuild an image
+[source, shell]
+----
+$ docker build -t myImage --no-cache .
+----
+
+.Create an image from a container
+[source, shell]
+----
+$ docker commit sha123123 myNewImage
+----
+
+.Remove an image
+[source, shell]
+----
+$ docker rmi myNewImage
+----
+
+=== Container Management
+
+.List running container
+[source, shell]
+----
+$ docker ps
+----
+.List all container
+[source, shell]
+----
+$ docker ps -a
+----
+.Inspect container Metadata
+[source, shell]
+----
+$ docker inspect sha1231234
+----
+.List local images
+[source, shell]
+----
+$ docker images
+----

@@ -1,0 +1,7 @@
+FROM alpine:3.8
+
+ARG MyARG
+
+RUN echo "Coucouc ${MyARG}" > myfile
+
+CMD ls myfile && ls /config && env && echo "Coucou ${MyVAR}" && cat myfile

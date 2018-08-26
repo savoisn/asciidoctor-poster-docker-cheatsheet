@@ -1,0 +1,68 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+== Docker Command
+=== General Usage
+
+.Start a container in Background
+[source, shell]
+----
+$ docker run -d jenkins
+----
+
+.Start an interactive container
+[source, shell]
+----
+$ docker run -it ubuntu bash
+----
+
+.Start a container and remove once stopped
+[source, shell]
+----
+$ docker run -rm jenkins
+----
+
+.Expose a port from the container on the host
+[source, shell]
+----
+$ docker run -p 8000:4000 -d jenkins
+----
+
+.Start a named container
+[source, shell]
+----
+$ docker run --name myDb -d postgres
+----
+
+.Stop a running container
+[source, shell]
+----
+$ docker stop myDb
+----
+.Start a stoped container
+[source, shell]
+----
+$ docker start myDb
+----
+
+=== Debug
+
+.Run a shell command in a running container
+[source, shell]
+----
+$ docker exec -it myNamedContainer sh
+----
+
+.Follow logs of a running container
+[source, shell]
+----
+$ docker logs -f myRunningContainer
+----
+
+.Show open port of container
+[source, shell]
+----
+$ docker port myRunningContainer
+----

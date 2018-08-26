@@ -1,0 +1,48 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+== Dockerfile
+
+[frame=none, grid=none, stripes="none", cols="50a,~,50a"]
+!===
+! 
+[source,dockerfile]
+----
+LABEL maintainer="nicolas.savois@talan.com" <1>
+
+FROM debian:jessie <2> 
+
+ENV nginxVer="XX.Y-Z" <3>
+
+RUN apt-get install open-ssl <4>
+
+RUN curl http://xx.org/.../nginx_${nginxVer}.deb -o nginx.deb -s && \ <5>
+    dpkg -i nginx.deb && \ 
+    rm nginx.deb && \ <6>
+    ln -s /etc/nginx/sites-available/site /etc/nginx/sites-enabled/site
+
+COPY nginx.conf /etc/nginx/nginx.conf <7>
+
+ADD myapp.conf /etc/nginx/sites-available/ <8>
+
+USER 1000:1000 <9>
+
+WORKDIR /path/to/workdir <10>
+
+ENTRYPOINT nginx start <11>
+----
+!
+! <1> *LABEL* : Add a label to the metadata of the docker image
+<2> *FROM* : The base image used to build the new image
+<3> *ENV* : Create and environment variable reusable later, check (5) for usage
+<4> *RUN* : Run a command to build the image like adding a package, touching file, etc...
+<5> *&& \* : Each line in the dockerfile create a new layer in the docker image. To avoid the layer multiplication we group commands with this shell feature
+<6> *_trick_* : Remove the downloaded file from the layer - no need to keep it once installed
+<7> *COPY* : Copy inside the image a file from the host (replace if it exists)
+<8> *ADD* : Copy inside the specified folder, - just use *COPY*, *ADD* comes with Magic around, and we all hate magic\! (right?)
+<9> *USER* : Change user, goes back to the kernel and run the next commands as the user with UID:GID from the docker host (1000:1000 is the first user created on nearly all linux distribution)
+<10> *WORKDIR* : Change directory, (most expensive cd in the world) 
+<11> *ENTRYPOINT* : Command run when the container start (PID=1)
+!===

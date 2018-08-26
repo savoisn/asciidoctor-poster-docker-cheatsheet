@@ -1,0 +1,61 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+=== Volumes
+
+.Mounting a local Directory on a container
+[source, shell]
+----
+$ docker run -V myFolder//data myContainer
+----
+
+.Create a local volume
+[source, shell]
+----
+$ docker volume create --name myVolume
+----
+
+.Mounting a volume on a container
+[source, shell]
+----
+$ docker run -V myVolume:/data myContainer
+----
+
+.Destroy a volume
+[source, shell]
+----
+$ docker volume rm myVolume
+----
+
+.List volumes
+[source, shell]
+----
+$ docker volume ls
+----
+
+=== Network
+
+.Create a local Network
+[source, shell]
+----
+$ docker network create myNetwork
+----
+
+.Attach a container to a Network on startup
+[source, shell]
+----
+$ docker run --net myNetwork
+----
+
+.Connect a running container to a network
+[source, shell]
+----
+$ docker network connect myNetwork myContainer
+----
+.Disconnect a running container to a network
+[source, shell]
+----
+$ docker network disconnect myNetwork myContainer
+----

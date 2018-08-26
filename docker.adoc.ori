@@ -1,0 +1,106 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:page-background-image: docker-2880-1800.png
+
+= Docker Cheat Sheet
+Author Name
+// other attributes
+ifdef::backend-pdf[:notitle:]
+
+ifdef::backend-pdf[]
+[discrete]
+= {doctitle}
+endif::[]
+
+ifdef::backend-pdf[]
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+endif::[]
+
+still rolling *strong* ok
+
+It's a "`u`" f**u**cking Working 
+
+[frame=none, grid=none,cols="1a,1a", stripes="none", header=none]
+|===
+|
+[source,elixir]
+----
+defrecord Person, first_name: nil, last_name: "Dudington" do
+  def name record do # huh ?
+    "#{record.first_name} #{record.last_name}"
+  end
+end
+
+greeter = fn(x) -> IO.puts "hey #{x}" end
+greeter.("Bob")
+----
+| hello
+
+|Web Browser
+
+|Ruby
+|Programming Language
+
+|TorqueBox
+|Application Server
+|===
+
+
+[frame=none, grid=none, cols="1a,1a"]
+|===
+|
+[frame=none, grid=none]
+!===
+!
+tab1 cell1-1
+!
+tab1 cell1-2
+!
+tab1 cell1-2
+!===
+|
+[frame=none, grid=none]
+!===
+!
+tab2 cell1-1
+!===
+|===
+
+Type the word [.userinput]#asciidoc# into the search bar.
+
+COucou +
+je suis sur une autre ligne
+
+[source,elixir]
+----
+defrecord Person, first_name: nil, last_name: "Dudington" do
+  def name record do # huh ?
+    "#{record.first_name} #{record.last_name}"
+  end
+end
+
+greeter = fn(x) -> IO.puts "hey #{x}" end
+greeter.("Bob")
+----
+
+[source,ruby]
+----
+require 'sinatra' // <1>
+
+get '/hi' do // <2>
+  "Hello World!" // <3>
+end
+----
+<1> Library import
+<2> URL mapping
+<3> HTTP response body
+
+
+[source, shell]
+----
+$ echo $EDITOR
+vim
+$ docker pull nsa/idea:0.0.1
+----
+

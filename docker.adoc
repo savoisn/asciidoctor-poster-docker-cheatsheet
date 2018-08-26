@@ -1,0 +1,44 @@
+:source-highlighter: highlightjs 
+:highlightjsdir: highlight
+:imagesdir: pictures
+:icons: font
+
+:page-background-image: pictures/background-3.png
+
+//= Docker Cheat Sheet
+//Author Name
+// other attributes
+ifdef::backend-pdf[:notitle:]
+
+//ifdef::backend-pdf[]
+//[discrete]
+//= {doctitle}
+//endif::[]
+
+ifdef::backend-pdf[]
+:source-highlighter: rouge
+:rouge-style: molokai
+endif::[]
+
+[frame=none, grid=none, stripes="none", cols="1,1, 4h"]
+|===
+a| image::cheatsheet_talanlabs.png[CheatSheet,301,200]
+a| image::docker.png[Docker,300,200]
+|
+|===
+
+[frame=none, grid=none, stripes="none", cols="15a,~,15a,~,18a,~,16a,~,16a,~,16a"]
+|===
+11*|
+a| include::docker-cli-1.adoc[]
+| 
+a| include::docker-cli-2.adoc[]
+| 
+a| include::docker-cli-3.adoc[]
+| 
+5+a| include::docker-compose-1.adoc[]
+5+a| include::dockerfile.adoc[]
+|
+5+a| include::docker-compose-2.adoc[]
+|===
+
