@@ -1,0 +1,21 @@
+= Docker Poster Talanlabs
+
+== Tooling : 
+
+look at asciidoctor ruby installation guide
+look at asciidoctor-pdf installation guide
+
+== Building Pdf : 
+
+`asciidoctor-pdf -r ./theme/custom.rb -r ./theme/shelldocker.rb -a pdf-style=basic-theme.yml -a pdf-fontsdir=fonts docker.adoc`
+
+== Developping with livereload and all that : 
+
+watching building and livereloading:
+`guard start`
+
+building PDF:
+`./node_modules/.bin/nodemon --exec "asciidoctor-pdf -r ./theme/custom.rb -r ./theme/shelldocker.rb -a pdf-style=basic-theme.yml -a pdf-fontsdir=fonts docker.adoc" -e html
+`
+
+

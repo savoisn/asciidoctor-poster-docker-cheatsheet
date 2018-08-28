@@ -6,31 +6,31 @@
 === Volumes
 
 .Mounting a local Directory on a container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run -V myFolder//data myContainer
 ----
 
 .Create a local volume
-[source, shell]
+[source, shelldocker]
 ----
 $ docker volume create --name myVolume
 ----
 
 .Mounting a volume on a container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run -V myVolume:/data myContainer
 ----
 
 .Destroy a volume
-[source, shell]
+[source, shelldocker]
 ----
 $ docker volume rm myVolume
 ----
 
 .List volumes
-[source, shell]
+[source, shelldocker]
 ----
 $ docker volume ls
 ----
@@ -38,24 +38,24 @@ $ docker volume ls
 === Network
 
 .Create a local Network
-[source, shell]
+[source, shelldocker]
 ----
 $ docker network create myNetwork
 ----
 
 .Attach a container to a Network on startup
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run --net myNetwork
 ----
 
 .Connect a running container to a network
-[source, shell]
+[source, shelldocker]
 ----
 $ docker network connect myNetwork myContainer
 ----
 .Disconnect a running container to a network
-[source, shell]
+[source, shelldocker]
 ----
 $ docker network disconnect myNetwork myContainer
 ----

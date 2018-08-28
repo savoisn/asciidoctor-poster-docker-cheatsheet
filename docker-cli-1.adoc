@@ -7,42 +7,42 @@
 === General Usage
 
 .Start a container in Background
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run -d jenkins
 ----
 
 .Start an interactive container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run -it ubuntu bash
 ----
 
 .Start a container and remove once stopped
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run -rm jenkins
 ----
 
 .Expose a port from the container on the host
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run -p 8000:4000 -d jenkins
 ----
 
 .Start a named container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker run --name myDb -d postgres
 ----
 
 .Stop a running container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker stop myDb
 ----
 .Start a stoped container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker start myDb
 ----
@@ -50,19 +50,19 @@ $ docker start myDb
 === Debug
 
 .Run a shell command in a running container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker exec -it myNamedContainer sh
 ----
 
 .Follow logs of a running container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker logs -f myRunningContainer
 ----
 
 .Show open port of container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker port myRunningContainer
 ----

@@ -440,59 +440,61 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Build an image from a Dockerfile in same dir</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker build -t myImage .</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker build -t myImage .</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Force rebuild an image</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker build -t myImage --no-cache .</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker build -t myImage --no-cache .</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Create an image from a container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker commit sha123123 myNewImage</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker commit sha123123 myNewImage</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Remove an image</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker rmi myNewImage</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker rmi myNewImage</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_container_management">Container Management</h3>
+<div class="sect1">
+<h2 id="_container_management">Container Management</h2>
+<div class="sectionbody">
 <div class="listingblock">
 <div class="title">List running container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker ps</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker ps</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">List all container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker ps -a</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker ps -a</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Inspect container Metadata</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker inspect sha1231234</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker inspect sha1231234</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">List local images</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker images</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker images</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-23 21:39:52 CEST
+Last updated 2018-08-27 17:10:21 CEST
 </div>
 </div>
 <link rel="stylesheet" href="highlight/styles/github.min.css">

@@ -6,48 +6,48 @@
 === Building Images
 
 .Build an image from a Dockerfile in same dir
-[source, shell]
+[source, shelldocker]
 ----
 $ docker build -t myImage .
 ----
 
 .Force rebuild an image
-[source, shell]
+[source, shelldocker]
 ----
 $ docker build -t myImage --no-cache .
 ----
 
 .Create an image from a container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker commit sha123123 myNewImage
 ----
 
 .Remove an image
-[source, shell]
+[source, shelldocker]
 ----
 $ docker rmi myNewImage
 ----
 
-=== Container Management
+== Container Management
 
 .List running container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker ps
 ----
 .List all container
-[source, shell]
+[source, shelldocker]
 ----
 $ docker ps -a
 ----
 .Inspect container Metadata
-[source, shell]
+[source, shelldocker]
 ----
 $ docker inspect sha1231234
 ----
 .List local images
-[source, shell]
+[source, shelldocker]
 ----
 $ docker images
 ----

@@ -440,31 +440,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Mounting a local Directory on a container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -V myFolder//data myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -V myFolder//data myContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Create a local volume</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker volume create --name myVolume</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker volume create --name myVolume</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Mounting a volume on a container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -V myVolume:/data myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -V myVolume:/data myContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Destroy a volume</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker volume rm myVolume</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker volume rm myVolume</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">List volumes</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker volume ls</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker volume ls</code></pre>
 </div>
 </div>
 </div>
@@ -473,32 +473,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Create a local Network</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker network create myNetwork</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker network create myNetwork</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Attach a container to a Network on startup</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run --net myNetwork</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run --net myNetwork</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Connect a running container to a network</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker network connect myNetwork myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker network connect myNetwork myContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Disconnect a running container to a network</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker network disconnect myNetwork myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker network disconnect myNetwork myContainer</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-23 21:39:49 CEST
+Last updated 2018-08-27 17:10:19 CEST
 </div>
 </div>
 <link rel="stylesheet" href="highlight/styles/github.min.css">

@@ -25,7 +25,9 @@ outline_list:
 
 code:
   font_family: M+ 1mn
-  font_color: #ffffff
+  font_color: #000000
+  background_color: #eeeeee
+  border_color: #dddddd
   padding: 2
 
 conum:

@@ -1,0 +1,161 @@
+# -*- coding: utf-8 -*- #
+require 'rouge' unless defined? ::Rouge.version
+
+module Rouge
+  module Themes
+    class Custom < CSSTheme
+      name 'custom'
+
+      # pallette, from GTKSourceView's ThankfulEyes
+      palette :cool_as_ice    => '#6c8b9f'
+      palette :slate_blue     => '#4e5d62'
+      palette :eggshell_cloud => '#dee5e7'
+      palette :krasna         => '#122b3b'
+      palette :aluminum1      => '#fefeec'
+      palette :scarletred2    => '#cc0000'
+      palette :butter3        => '#c4a000'
+      palette :go_get_it      => '#b2fd6d'
+      palette :chilly         => '#a8e1fe'
+      palette :unicorn        => '#faf6e4'
+      palette :sandy          => '#f6dd62'
+      palette :pink_merengue  => '#f696db'
+      palette :dune           => '#fff0a6'
+      palette :backlit        => '#4df4ff'
+      palette :schrill        => '#ffb000'
+
+      style Text, :fg => :unicorn, :bg => :krasna
+      style Generic::Lineno, :fg => :eggshell_cloud, :bg => :slate_blue
+
+      style Generic::Prompt, :fg => :chilly, :bold => true
+
+      style Comment, :fg => :cool_as_ice, :italic => true
+      style Comment::Preproc, :fg => :go_get_it, :bold => true, :italic => true
+      style Error, :fg => :aluminum1, :bg => :scarletred2
+      style Generic::Error, :fg => :scarletred2, :italic => true, :bold => true
+      style Keyword, :fg => :sandy, :bold => true
+      style Operator, :fg => :backlit, :bold => true
+      style Punctuation, :fg => :backlit
+      style Generic::Deleted, :fg => :scarletred2
+      style Generic::Inserted, :fg => :go_get_it
+      style Generic::Emph, :italic => true
+      style Generic::Strong, :bold => true
+      style Generic::Traceback, :fg => :eggshell_cloud, :bg => :slate_blue
+      style Keyword::Constant, :fg => :pink_merengue, :bold => true
+      style Keyword::Namespace,
+            Keyword::Pseudo,
+            Keyword::Reserved,
+            Generic::Heading,
+            Generic::Subheading, :fg => :schrill, :bold => true
+      style Keyword::Type,
+            Name::Constant,
+            Name::Class,
+            Name::Decorator,
+            Name::Namespace,
+            Name::Builtin::Pseudo,
+            Name::Exception, :fg => :go_get_it, :bold => true
+      style Name::Label,
+            Name::Tag, :fg => :schrill, :bold => true
+      style Literal::Number,
+            Literal::Date,
+            Literal::String::Symbol, :fg => :pink_merengue, :bold => true
+      style Literal::String, :fg => :dune, :bold => true
+      style Literal::String::Escape,
+            Literal::String::Char,
+            Literal::String::Interpol, :fg => :backlit, :bold => true
+      style Name::Builtin, :bold => true
+      style Name::Entity, :fg => '#999999', :bold => true
+      style Text::Whitespace, :fg => :unicorn
+      style Generic::Output, :fg => '#BBBBBB'
+      style Name::Function,
+            Name::Property,
+            Name::Attribute, :fg => :chilly
+      style Name::Variable, :fg => :chilly, :bold => true
+      style Name::Builtin::Pseudo,
+            Name::Builtin, :fg => :go_get_it
+
+
+      #palette :black          => '#000000'
+      #palette :bright_green   => '#a6e22e'
+      #palette :bright_pink    => '#f92672'
+      #palette :carmine        => '#960050'
+      #palette :dark           => '#505050'
+      #palette :dark_grey      => '#888888'
+      #palette :dark_red       => '#aa0000'
+      #palette :dimgrey        => '#75715e'
+      #palette :dimgreen       => '#324932'
+      #palette :dimred         => '#493131'
+      #palette :emperor        => '#555555'
+      #palette :grey           => '#999999'
+      #palette :light_grey     => '#aaaaaa'
+      #palette :light_violet   => '#ae81ff'
+      #palette :soft_cyan      => '#66d9ef'
+      #palette :soft_yellow    => '#e6db74'
+      #palette :very_dark      => '#1e0010'
+      #palette :whitish        => '#f8f8f2'
+      #palette :orange         => '#f6aa11'
+      #palette :white          => '#ffffff'
+
+      #style Comment,
+            #Comment::Multiline,
+            #Comment::Single,                  :fg => :dimgrey, :italic => true
+      #style Comment::Preproc,                 :fg => :dimgrey, :bold => true
+      #style Comment::Special,                 :fg => :dimgrey, :italic => true, :bold => true
+      #style Error,                            :fg => :carmine, :bg => :very_dark
+      #style Generic::Inserted,                :fg => :white, :bg => :dimgreen
+      #style Generic::Deleted,                 :fg => :white, :bg => :dimred
+      #style Generic::Emph,                    :fg => :black, :italic => true
+      #style Generic::Error,
+            #Generic::Traceback,               :fg => :dark_red
+      #style Generic::Heading,                 :fg => :grey
+      #style Generic::Output,                  :fg => :dark_grey
+      #style Generic::Prompt,                  :fg => :emperor
+      #style Generic::Strong,                  :bold => true
+      #style Generic::Subheading,              :fg => :light_grey
+      #style Keyword,
+            #Keyword::Constant,
+            #Keyword::Declaration,
+            #Keyword::Pseudo,
+            #Keyword::Reserved,
+            #Keyword::Type,                    :fg => :soft_cyan, :bold => true
+      #style Keyword::Namespace,
+            #Operator::Word,
+            #Operator,                         :fg => :bright_pink, :bold => true
+      #style Literal::Number::Float,
+            #Literal::Number::Hex,
+            #Literal::Number::Integer::Long,
+            #Literal::Number::Integer,
+            #Literal::Number::Oct,
+            #Literal::Number,
+            #Literal::String::Escape,          :fg => :light_violet
+      #style Literal::String::Backtick,
+            #Literal::String::Char,
+            #Literal::String::Doc,
+            #Literal::String::Double,
+            #Literal::String::Heredoc,
+            #Literal::String::Interpol,
+            #Literal::String::Other,
+            #Literal::String::Regex,
+            #Literal::String::Single,
+            #Literal::String::Symbol,
+            #Literal::String,                  :fg => :soft_yellow
+      #style Name::Attribute,                  :fg => :bright_green
+      #style Name::Class,
+            #Name::Decorator,
+            #Name::Exception,
+            #Name::Function,                   :fg => :bright_green, :bold => true
+      #style Name::Constant,                   :fg => :soft_cyan
+      #style Name::Builtin::Pseudo,
+            #Name::Builtin,
+            #Name::Entity,
+            #Name::Namespace,
+            #Name::Variable::Class,
+            #Name::Variable::Global,
+            #Name::Variable::Instance,
+            #Name::Variable,
+            #Text::Whitespace,                 :fg => :whitish
+      #style Name::Label,                      :fg => :whitish, :bold => true
+      #style Name::Tag,                        :fg => :bright_pink
+      #style Text,                             :fg => :whitish, :bg => :dark
+    end
+  end
+end

@@ -494,43 +494,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Start a container in Background</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -d jenkins</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -d jenkins</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Start an interactive container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -it ubuntu bash</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -it ubuntu bash</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Start a container and remove once stopped</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -rm jenkins</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -rm jenkins</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Expose a port from the container on the host</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -p 8000:4000 -d jenkins</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -p 8000:4000 -d jenkins</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Start a named container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run --name myDb -d postgres</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run --name myDb -d postgres</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Stop a running container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker stop myDb</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker stop myDb</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Start a stoped container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker start myDb</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker start myDb</code></pre>
 </div>
 </div>
 </div>
@@ -539,19 +539,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Run a shell command in a running container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker exec -it myNamedContainer sh</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker exec -it myNamedContainer sh</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Follow logs of a running container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker logs -f myRunningContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker logs -f myRunningContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Show open port of container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker port myRunningContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker port myRunningContainer</code></pre>
 </div>
 </div>
 </div>
@@ -563,52 +563,54 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Build an image from a Dockerfile in same dir</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker build -t myImage .</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker build -t myImage .</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Force rebuild an image</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker build -t myImage --no-cache .</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker build -t myImage --no-cache .</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Create an image from a container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker commit sha123123 myNewImage</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker commit sha123123 myNewImage</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Remove an image</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker rmi myNewImage</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker rmi myNewImage</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_container_management">Container Management</h3>
+<div class="sect1">
+<h2 id="_container_management">Container Management</h2>
+<div class="sectionbody">
 <div class="listingblock">
 <div class="title">List running container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker ps</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker ps</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">List all container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker ps -a</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker ps -a</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Inspect container Metadata</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker inspect sha1231234</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker inspect sha1231234</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">List local images</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker images</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker images</code></pre>
+</div>
 </div>
 </div>
 </div></div></td>
@@ -618,31 +620,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Mounting a local Directory on a container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -V myFolder//data myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -V myFolder//data myContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Create a local volume</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker volume create --name myVolume</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker volume create --name myVolume</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Mounting a volume on a container</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run -V myVolume:/data myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run -V myVolume:/data myContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Destroy a volume</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker volume rm myVolume</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker volume rm myVolume</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">List volumes</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker volume ls</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker volume ls</code></pre>
 </div>
 </div>
 </div>
@@ -651,25 +653,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">Create a local Network</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker network create myNetwork</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker network create myNetwork</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Attach a container to a Network on startup</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker run --net myNetwork</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker run --net myNetwork</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Connect a running container to a network</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker network connect myNetwork myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker network connect myNetwork myContainer</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">Disconnect a running container to a network</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ docker network disconnect myNetwork myContainer</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ docker network disconnect myNetwork myContainer</code></pre>
 </div>
 </div>
 </div></div></td>
@@ -679,9 +681,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <table class="tableblock frame-none grid-none stripes-none stretch">
 <colgroup>
-<col style="width: 30%;">
+<col style="width: 38%;">
 <col>
-<col style="width: 70%;">
+<col style="width: 60%;">
 </colgroup>
 <tbody>
 <tr>
@@ -707,6 +709,8 @@ services: <i class="conum" data-value="1"></i><b>(1)</b>
       - "5000:5000"
     volumes: <i class="conum" data-value="8"></i><b>(8)</b>
       - .:/config
+    depends_on: <i class="conum" data-value="9"></i><b>(9)</b>
+      - postgresql
     networks:  <i class="conum" data-value="5"></i><b>(5)</b>
       - database
       - frontend
@@ -755,7 +759,13 @@ Dockerfile filename and path can be overiden as described</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td><strong><em>volumes</em></strong> : volumes from host can also be mounted in the container</td>
+<td><strong><em>volumes</em></strong> : volumes from host can also be mounted in the container<br>
+very usefull in developpement to have your apps changes available in the service without rebuilding the container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td><strong><em>depends_on</em></strong> : wait for depended services to be started - doesn&#8217;t mean it&#8217;s ready, just that compose has started the depended service.
+watch the other side of the poster for more info on service dependencies</td>
 </tr>
 </table>
 </div></div></td>
@@ -771,9 +781,9 @@ Dockerfile filename and path can be overiden as described</td>
 <div class="sectionbody">
 <table class="tableblock frame-none grid-none stripes-none stretch">
 <colgroup>
-<col style="width: 49%;">
+<col style="width: 50%;">
 <col>
-<col style="width: 49%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
@@ -876,34 +886,105 @@ ENTRYPOINT nginx start <i class="conum" data-value="11"></i><b>(11)</b></code></
 <div class="listingblock">
 <div class="title">build the container from docker-compose.yml</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose build</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose build</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">specify non default compose file</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose -f myConfig.yml run backup</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose -f myConfig.yml run backup</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">specify a project name</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose -p myproject run backup</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose -p myproject run backup</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>used by compose to define container name with <code>docker ps</code>, defaults to the folder name</p>
 </div>
 <div class="listingblock">
-<div class="title">validate compose config and show compose file</div>
+<div class="title">create an alias for docker-compose</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose config</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">alias dc='docker-compose'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>will save you a lot of typing :)</p>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="sect2">
+<h3 id="_managing_composed_services">Managing Composed Services</h3>
+<div class="listingblock">
+<div class="title">run the services in foreground</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose up</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">run the services in background</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose up -d</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">run only one service</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose up web</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">stop &amp; remove all services, volmes &amp; network</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose down</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">stop one service</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose stop web</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">restart a stoped service</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose start web</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">remove a container associated with service</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose rm web</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">stop and remove everything</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose rm -vfs web</code></pre>
+</div>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="sect2">
+<h3 id="_debuging_composed_services">Debuging Composed Services</h3>
+<div class="listingblock">
+<div class="title">Running Commands in started container</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose exec web sh</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Running commands in container</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose exec web sh</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">follow logs of the containers</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose logs -f --tail=10</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose logs -f --tail=10</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -913,31 +994,94 @@ useful when compose runs for a long time&#8230;&#8203;</p>
 <div class="listingblock">
 <div class="title">display running services</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose ps</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose ps</code></pre>
 </div>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><mark>#</mark>
-.build the container from docker-compose.yml</p>
 </div>
 <div class="listingblock">
+<div class="title">validate compose config and show compose file</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose build</code></pre>
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker-compose config</code></pre>
 </div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">build the container from docker-compose.yml</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">docker-compose build</code></pre>
 </div>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-none grid-none stripes-none stretch">
+<colgroup>
+<col style="width: 49%;">
+<col>
+<col style="width: 49%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowergreek">
+<ol class="lowergreek">
+<li>
+<p>Codebase
+One codebase tracked in revision control, many deploys</p>
+</li>
+<li>
+<p>Dependencies
+Explicitly declare and isolate dependencies</p>
+</li>
+<li>
+<p>Config
+Store config in the environment</p>
+</li>
+<li>
+<p>Backing services
+Treat backing services as attached resources</p>
+</li>
+<li>
+<p>Build, release, run
+Strictly separate build and run stages</p>
+</li>
+<li>
+<p>Processes
+Execute the app as one or more stateless processes</p>
+</li>
+<li>
+<p>Port binding
+Export services via port binding</p>
+</li>
+<li>
+<p>Concurrency
+Scale out via the process model</p>
+</li>
+<li>
+<p>Disposability
+Maximize robustness with fast startup and graceful shutdown</p>
+</li>
+<li>
+<p>Dev/prod parity
+Keep development, staging, and production as similar as possible</p>
+</li>
+<li>
+<p>Logs
+Treat logs as event streams</p>
+</li>
+<li>
+<p>Admin processes
+Run admin/management tasks as one-off processes</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>coucou</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Coucouc</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -945,7 +1089,7 @@ useful when compose runs for a long time&#8230;&#8203;</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-25 21:52:44 CEST
+Last updated 2018-08-28 10:17:50 CEST
 </div>
 </div>
 <link rel="stylesheet" href="highlight/styles/github.min.css">

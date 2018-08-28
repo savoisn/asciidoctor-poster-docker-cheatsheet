@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.7.1">
-<title>docker-compose.yml</title>
+<title>Docker Poster Talanlabs</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -429,27 +429,48 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
+<h1>Docker Poster Talanlabs</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_docker_compose_yml">docker-compose.yml</h2>
+<h2 id="_tooling">Tooling :</h2>
 <div class="sectionbody">
-<table class="tableblock frame-none grid-none stripes-none stretch">
-</table>
+<div class="paragraph">
+<p>look at asciidoctor ruby installation guide
+look at asciidoctor-pdf installation guide</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_building_pdf">Building Pdf :</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>asciidoctor-pdf -r ./theme/custom.rb -r ./theme/shelldocker.rb -a pdf-style=basic-theme.yml -a pdf-fontsdir=fonts docker.adoc</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_developping_with_livereload_and_all_that">Developping with livereload and all that :</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>watching building and livereloading:
+<code>guard start</code></p>
+</div>
+<div class="paragraph">
+<p>building PDF:
+`./node_modules/.bin/nodemon --exec "asciidoctor-pdf -r ./theme/custom.rb -r ./theme/shelldocker.rb -a pdf-style=basic-theme.yml -a pdf-fontsdir=fonts docker.adoc" -e html
+`</p>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-27 09:12:13 CEST
+Last updated 2018-08-28 09:51:00 CEST
 </div>
 </div>
-<link rel="stylesheet" href="highlight/styles/github.min.css">
-<script src="highlight/highlight.min.js"></script>
-<script>hljs.initHighlighting()</script>
 </body>
 </html>

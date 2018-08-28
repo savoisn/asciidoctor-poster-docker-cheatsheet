@@ -54,7 +54,8 @@ In this example, proxy will never have access to the postgres database. But can 
 <6> *_env_file_* : set list of environment variable available in the container from a file on the host - only available during execution, not build.
 <7> *_build_* : instruct docker-compose to build the container from a Dockerfile.
 Dockerfile filename and path can be overiden as described
-<8> *_volumes_* : volumes from host can also be mounted in the container
+<8> *_volumes_* : volumes from host can also be mounted in the container +
+very usefull in developpement to have your apps changes available in the service without rebuilding the container
 <9> *_depends_on_* : wait for depended services to be started - doesn't mean it's ready, just that compose has started the depended service.
 watch the other side of the poster for more info on service dependencies
 !===
