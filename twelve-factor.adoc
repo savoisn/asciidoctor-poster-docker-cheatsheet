@@ -1,28 +1,28 @@
-== The Twelve Factors
+=== The Twelve Factors
 
 [lowergreek]
 . *_Codebase_* +
 One codebase tracked in revision control, many deploys
-. Dependencies +
+. *_Dependencies_* +
 Explicitly declare and isolate dependencies
-. Config +
+. *_Config_* +
 Store config in the environment
-. Backing services +
+. *_Backing services_* +
 Treat backing services as attached resources
-. Build, release, run +
+. *_Build, release, run_* +
 Strictly separate build and run stages
-. Processes +
+. *_Processes_* +
 Execute the app as one or more stateless processes
-. Port binding +
+. *_Port binding_* +
 Export services via port binding
-. Concurrency +
+. *_Concurrency_* +
 Scale out via the process model
-. Disposability +
+. *_Disposability_* +
 Maximize robustness with fast startup and graceful shutdown
-. Dev/prod parity +
+. *_Dev/prod parity_* +
 Keep development, staging, and production as similar as possible
-. Logs +
+. *_Logs_* +
 Treat logs as event streams
-. Admin processes +
+. *_Admin processes_* +
 Run admin/management tasks as one-off processes
 

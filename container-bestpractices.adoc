@@ -1,0 +1,25 @@
+
+
+[frame=none, grid=none, stripes="none", cols="49a,~,49a"]
+!====
+! == Best Practices
+include::twelve-factor.adoc[]
+!
+! 
+=== Package a single application per container
+
+=== Properly handle PID 1, signal handling, and zombie processes
+
+=== Optimize for the Docker build cache
+
+=== Remove unnecessary tools
+
+=== Build the smallest image possible
+
+=== Use vulnerability scanning in Container Registry
+
+=== Properly tag your images
+
+=== Carefully consider whether to use a public image
+
+!====

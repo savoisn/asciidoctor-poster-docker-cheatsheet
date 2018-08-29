@@ -51,3 +51,19 @@ $ docker inspect sha1231234
 ----
 $ docker images
 ----
+.Kill all container
+[source, shelldocker]
+----
+$ docker kill $(docker ps -q)
+----
+.Remove all stopped container
+[source, shelldocker]
+----
+$ docker rm $(docker ps -q -a)
+----
+.Removing all untagged image
+[source, shelldocker]
+----
+$ docker rmi $(docker images \
+  | grep "^<none>" | awk '{print $3}')
+----

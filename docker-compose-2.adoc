@@ -3,11 +3,11 @@
 :imagesdir: pictures
 :icons: font
 
-== Docker Compose Command
-
 [frame=none, grid=none, stripes="none", cols="33a,~,33a,~,33a"]
 !===
 ! 
+== Docker Compose Command
+
 ### General Usage
 .build the container from docker-compose.yml
 [source, shelldocker]

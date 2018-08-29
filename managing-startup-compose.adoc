@@ -1,0 +1,14 @@
+== Managing startup with compose
+
+compose will start all the service nearly at the same time,
+you can specify a depends_on attribute to "orchastrate the startup order"
+but it will not wait for the service to be up and running.
+
+Suppose your API layer is a java spring app which takes a little while to boot, you don't want your frontend service to be up too soon without the API ready.
+
+There's a few tricks to manage the startup order +
+They all rely on way to start the process in the container
+
+=== dockerize
+
+=== wait-for-it

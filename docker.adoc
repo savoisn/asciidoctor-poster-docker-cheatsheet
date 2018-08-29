@@ -45,11 +45,10 @@ a| include::docker-cli-3.adoc[]
 
 [frame=none, grid=none, stripes="none", cols="49a,~,49a"]
 |===
+a| include::container-bestpractices.adoc[]
+|
+a| include::docker-compose-bestpractices.adoc[]
 a| include::dockerfile-bestpractices.adoc[]
 | 
-a| include::twelve-factor.adoc[]
-| coucou
-| 
-| Coucouc
-
+| Talanlabs publicity
 |===

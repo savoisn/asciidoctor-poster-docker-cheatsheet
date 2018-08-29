@@ -1,0 +1,10 @@
+
+[frame=none, grid=none, stripes="none", cols="49a,~,49a"]
+!===
+! 
+## Dockerfile Things
+don't be too much stupid
+!
+! include::dockerfile-multistage-build.adoc[]
+
+!===
