@@ -9,9 +9,10 @@ Suppose your API layer is a java spring app which takes a little while to boot, 
 There's a few tricks to manage the startup order +
 They all rely on way to start the process in the container
 
-=== wait-for-it
+=== wait-for-it 
+https://github.com/vishnubob/wait-for-it
 
-Wrap your 
+Wrap your calls with the binary in your service command
 
 [source, dockerfile]
 ----

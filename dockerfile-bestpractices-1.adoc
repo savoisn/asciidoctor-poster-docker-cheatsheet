@@ -21,6 +21,7 @@ If you like an untrusted image, prefere copying the dockerfile and maintain it l
 * avoid switching context in the image build
   - don't change USER back and forth
   - don't set multiple ENV, use envfile
+* use alpine or even distroless images
 * to help you can use multi stage build when needed
 
 === Remove unnecessary tools

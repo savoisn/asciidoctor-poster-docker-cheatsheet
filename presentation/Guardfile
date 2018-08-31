@@ -1,0 +1,23 @@
+require 'asciidoctor'
+require 'asciidoctor-revealjs'
+
+def buildReveal
+  Asciidoctor.convert_file "prez.adoc", backend: "revealjs", header_footer: true, to_file: true, safe: :safe,   attributes: {
+    'revealjs_theme' => 'solarized',
+    'revealjs_slideNumber' => 'true',
+    'revealjs_history' => 'true',
+  }
+end
+
+guard 'shell' do
+  buildReveal
+ 
+  watch(/.*\.adoc$/) {|m|
+    buildReveal
+  }
+end
+
+guard 'livereload' do
+  watch(%r{^.+\.(css|js|html)$})
+end
+

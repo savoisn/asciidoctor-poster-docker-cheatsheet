@@ -1,0 +1,38 @@
+
+:source-highlighter: highlightjs
+
+
+= Un Poster avec AsciiDoctor?
+
+Facile?
+
+== Un poster?
+
+* Cheat Sheets :-)
+- Tout le monde aime ca 
+- C'est super utile
+
+* Shit Sheets :-(
+- formats = png / jpg si on a de la change svg
+- quel version? quand ca a été fait?
+- j'ai mon truc a rajouter!?
+
+
+== T'es qui?
+
+* Nico !
+* Vieux Dev 20 ans de code
+* Works @ Talanabs
+
+Github : @savoisn +
+Twitter : @nicosavois
+
+== Donc une cheat sheet format poster !
+
+Hello World - Good Bye Cruel World
+
+[NOTE.speaker]
+--
+Actually things aren't that bad
+--
+

@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gem 'asciidoctor-revealjs' # latest released version
+gem 'guard' # latest released version
+
+gem 'guard-shell'
+gem 'guard-livereload'
+
