@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.7.1">
-<title>Untitled</title>
+<title>dockerize</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -434,12 +434,62 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="header">
 </div>
 <div id="content">
-<table class="tableblock frame-none grid-none stripes-none stretch">
-</table>
+<div class="sect2">
+<h3 id="_dockerize">dockerize</h3>
+<div class="paragraph">
+<p>Dockerize is a utility to simplify running applications in docker containers. It allows you to:</p>
+</div>
+<div class="listingblock">
+<div class="title">in Dockerfile :</div>
+<div class="content">
+<pre class="highlight"><code class="language-dockerfile" data-lang="dockerfile">CMD dockerize
+     -template /etc/nginx/nginx.tmpl:/etc/nginx/nginx.conf
+     -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log
+     -wait tcp://web:8000 nginx</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">in docker-compose :</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">web:
+  command: [
+    "dockerize",
+      "-template /etc/nginx/nginx.tmpl:/etc/nginx/nginx.conf",
+      "-stdout /var/log/nginx/access.log",
+      "-stderr /var/log/nginx/error.log",
+      "-wait tcp://web:8000 nginx"
+   ]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Wait for other services to be available using TCP, HTTP(S)</div>
+<div class="content">
+<pre class="highlight"><code class="language-shelldocker" data-lang="shelldocker">$ dockerize -wait tcp://db:5432 -wait http://web:80
+            -wait file:///tmp/generated-file
+            -timeout 10s</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Tail multiple log files to stdout and/or stderr</div>
+<div class="content">
+<pre class="highlight"><code class="language-shelldocker" data-lang="shelldocker">$ dockerize -stdout info.log -stdout perf.log -stderr error.log</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Generate configuration files at container startup time</div>
+<div class="content">
+<pre class="highlight"><code class="language-shelldocker" data-lang="shelldocker">$ dockerize -template template1.tmpl:file1.cfg
+            -template template2.tmpl:file3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>from templates and container environment variables</p>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-31 09:55:38 CEST
+Last updated 2018-08-31 18:30:42 CEST
 </div>
 </div>
 </body>

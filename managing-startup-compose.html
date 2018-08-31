@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_managing_startup_with_compose">Managing startup with compose</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>compose will start all the service nearly at the same time,
+<p>Compose will start all the service nearly at the same time,
 you can specify a depends_on attribute to "orchastrate the startup order"
 but it will not wait for the service to be up and running.</p>
 </div>
@@ -450,19 +450,51 @@ but it will not wait for the service to be up and running.</p>
 They all rely on way to start the process in the container</p>
 </div>
 <div class="sect2">
-<h3 id="_dockerize">dockerize</h3>
-
+<h3 id="_wait_for_it">wait-for-it</h3>
+<div class="paragraph">
+<p>Wrap your</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-dockerfile" data-lang="dockerfile">version: "2"
+services:
+  web:
+    build: .
+    ports:
+      - "80:8000"
+    depends_on:
+      - "db"
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "app.py"]
+  db:
+    image: postgres</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_wait_for_it">wait-for-it</h3>
-
+<h3 id="_dockerize">dockerize</h3>
+<div class="paragraph">
+<p>Dockerize is a utility to simplify running applications in docker containers. It allows you to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>generate application configuration files at container startup time from templates and container environment variables</p>
+</li>
+<li>
+<p>Tail multiple log files to stdout and/or stderr</p>
+</li>
+<li>
+<p>Wait for other services to be available using TCP, HTTP(S), unix before starting the main process.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-29 16:10:38 CEST
+Last updated 2018-08-31 18:12:05 CEST
 </div>
 </div>
 </body>

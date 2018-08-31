@@ -437,13 +437,76 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_multistage_build">Multistage Build</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Multistage build is a way to decouple build container that produce a binary and the container that runs this binary.</p>
+</div>
+<div class="sect3">
+<h4 id="_dockerfile">Dockerfile</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-dockerfile" data-lang="dockerfile">FROM golang:1.7.3 as builder <b class="conum">(1)</b>
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html
+COPY app.go . <b class="conum">(2)</b>
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app . <b class="conum">(3)</b>
 
+FROM alpine:latest <b class="conum">(4)</b>
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /go/src/github.com/alexellis/href-counter/app . <b class="conum">(5)</b>
+CMD ["./app"] <b class="conum">(6)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>named target (as) to use in <em>futur</em> target</p>
+</li>
+<li>
+<p>copy your code in the container to build</p>
+</li>
+<li>
+<p>build a single binary</p>
+</li>
+<li>
+<p>2nd target, it will be the base image for the produced image</p>
+</li>
+<li>
+<p>copy the binary from the first image to the second image</p>
+</li>
+<li>
+<p>run target is the copied binary</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_launching_the_build">Launching the build</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shelldocker" data-lang="shelldocker">docker build -t nsa/gotest:latest .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result 10MB image instead of 700MB well worth the hassle!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shelldocker" data-lang="shelldocker">REPOSITORY          TAG                 IMAGE ID            SIZE
+nsa/gotest          latest              bf19b53c1189        10.6MB
+&lt;none&gt;              &lt;none&gt;              bf63bcebbf0d        695MB</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>still need to remove the <em>ghost</em> image</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-29 16:48:08 CEST
+Last updated 2018-08-31 16:26:27 CEST
 </div>
 </div>
 </body>

@@ -1,1 +1,14 @@
+
+
+[frame=none, grid=none, stripes="none", cols="49a,~,49a"]
+!===
+! 
 == Docker-Compose Best Practices
+include::managing-startup-compose-1.adoc[]
+!
+! 
+include::managing-startup-compose-2.adoc[]
+!===
+
+
+

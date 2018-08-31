@@ -32,6 +32,7 @@ services: <1>
       - .:/config
     depends_on: <9>
       - postgresql
+    working_dir: /app <10>
     networks:  <5>
       - database
       - frontend
@@ -58,4 +59,5 @@ Dockerfile filename and path can be overiden as described
 very usefull in developpement to have your apps changes available in the service without rebuilding the container
 <9> *_depends_on_* : wait for depended services to be started - doesn't mean it's ready, just that compose has started the depended service.
 watch the other side of the poster for more info on service dependencies
+<10> *_working_dir_* : same a WORKDIR in dockerfile, change to the specified directory
 !===

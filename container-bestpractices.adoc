@@ -1,25 +1,31 @@
 
-
 [frame=none, grid=none, stripes="none", cols="49a,~,49a"]
-!====
+!===
 ! == Best Practices
 include::twelve-factor.adoc[]
 !
 ! 
 === Package a single application per container
+Never ever use anything like a supervisor or a bash that spawn process inside a container.
+1 container 1 process that's it.
+It would cripple the scalability offered by containers.
 
 === Properly handle PID 1, signal handling, and zombie processes
+If your process dies you don't want it to leave child / zombie processes behind and plague the host resources
 
-=== Optimize for the Docker build cache
+.3 possibilities :
+* run your binary from the CMD / ENTRYPOINT command in the Dockerfile - safest and easiest
+* if you really need to launch a shell script that will itself launch your binary after setting things up, do it with the exec command. It will transfer the PID 1 to the binary and you will be safe
+* use a custom init system inside the container like tini and use it as the entrypoint of your container. You have got to know what you are doing here.
 
-=== Remove unnecessary tools
-
-=== Build the smallest image possible
 
 === Use vulnerability scanning in Container Registry
 
-=== Properly tag your images
+Security wise, it's a good practice to scan the available image in your image repository and verify that there's nothing too old.
 
-=== Carefully consider whether to use a public image
+.for exemple:
+* CoreOS Clair {clair-link}
+* Notary {notary-link}
 
-!====
+
+!===

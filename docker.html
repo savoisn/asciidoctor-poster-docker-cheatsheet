@@ -730,6 +730,7 @@ services: <i class="conum" data-value="1"></i><b>(1)</b>
       - .:/config
     depends_on: <i class="conum" data-value="9"></i><b>(9)</b>
       - postgresql
+    working_dir: /app <i class="conum" data-value="10"></i><b>(10)</b>
     networks:  <i class="conum" data-value="5"></i><b>(5)</b>
       - database
       - frontend
@@ -785,6 +786,10 @@ very usefull in developpement to have your apps changes available in the service
 <td><i class="conum" data-value="9"></i><b>9</b></td>
 <td><strong><em>depends_on</em></strong> : wait for depended services to be started - doesn&#8217;t mean it&#8217;s ready, just that compose has started the depended service.
 watch the other side of the poster for more info on service dependencies</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td><strong><em>working_dir</em></strong> : same a WORKDIR in dockerfile, change to the specified directory</td>
 </tr>
 </table>
 </div></div></td>
@@ -1039,8 +1044,7 @@ useful when compose runs for a long time&#8230;&#8203;</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><div class="content"><h1 id="_best_practices" class="sect0">Best Practices</h1>
-<table class="tableblock frame-none grid-none stripes-none stretch">
+<td class="tableblock halign-left valign-top"><div class="content"><table class="tableblock frame-none grid-none stripes-none stretch">
 <colgroup>
 <col style="width: 49%;">
 <col>
@@ -1049,8 +1053,10 @@ useful when compose runs for a long time&#8230;&#8203;</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="sect1">
-<h2 id="_the_twelve_factors">The Twelve Factors</h2>
+<h2 id="_best_practices">Best Practices</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_twelve_factors">The Twelve Factors</h3>
 <div class="olist lowergreek">
 <ol class="lowergreek">
 <li>
@@ -1104,50 +1110,166 @@ Run admin/management tasks as one-off processes</p>
 </ol>
 </div>
 </div>
+</div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="sect2">
 <h3 id="_package_a_single_application_per_container">Package a single application per container</h3>
-
+<div class="paragraph">
+<p>Never ever use anything like a supervisor or a bash that spawn process inside a container.
+1 container 1 process that&#8217;s it.
+It would cripple the scalability offered by containers.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_properly_handle_pid_1_signal_handling_and_zombie_processes">Properly handle PID 1, signal handling, and zombie processes</h3>
-
+<div class="paragraph">
+<p>If your process dies you don&#8217;t want it to leave child / zombie processes behind and plague the host resources</p>
 </div>
-<div class="sect2">
-<h3 id="_optimize_for_the_docker_build_cache">Optimize for the Docker build cache</h3>
-
+<div class="ulist">
+<div class="title">3 possibilities :</div>
+<ul>
+<li>
+<p>run your binary from the CMD / ENTRYPOINT command in the Dockerfile - safest and easiest</p>
+</li>
+<li>
+<p>if you really need to launch a shell script that will itself launch your binary after setting things up, do it with the exec command. It will transfer the PID 1 to the binary and you will be safe</p>
+</li>
+<li>
+<p>use a custom init system inside the container like tini and use it as the entrypoint of your container. You have got to know what you are doing here.</p>
+</li>
+</ul>
 </div>
-<div class="sect2">
-<h3 id="_remove_unnecessary_tools">Remove unnecessary tools</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_build_the_smallest_image_possible">Build the smallest image possible</h3>
-
 </div>
 <div class="sect2">
 <h3 id="_use_vulnerability_scanning_in_container_registry">Use vulnerability scanning in Container Registry</h3>
-
+<div class="paragraph">
+<p>Security wise, it&#8217;s a good practice to scan the available image in your image repository and verify that there&#8217;s nothing too old.</p>
 </div>
-<div class="sect2">
-<h3 id="_properly_tag_your_images">Properly tag your images</h3>
-
+<div class="ulist">
+<div class="title">for exemple:</div>
+<ul>
+<li>
+<p>CoreOS Clair <a href="https://github.com/coreos/clair/" class="bare">https://github.com/coreos/clair/</a></p>
+</li>
+<li>
+<p>Notary <a href="https://github.com/docker/notary" class="bare">https://github.com/docker/notary</a></p>
+</li>
+</ul>
 </div>
-<div class="sect2">
-<h3 id="_carefully_consider_whether_to_use_a_public_image">Carefully consider whether to use a public image</h3>
-
 </div></div></td>
 </tr>
 </tbody>
 </table></div></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><table class="tableblock frame-none grid-none stripes-none stretch">
+<colgroup>
+<col style="width: 49%;">
+<col>
+<col style="width: 49%;">
+</colgroup>
+<tbody>
+<tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="sect1">
 <h2 id="_docker_compose_best_practices">Docker-Compose Best Practices</h2>
 <div class="sectionbody">
 
 </div>
+</div>
+<div class="sect1">
+<h2 id="_managing_startup_with_compose">Managing startup with compose</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Compose will start all the service nearly at the same time,
+you can specify a depends_on attribute to "orchastrate the startup order"
+but it will not wait for the service to be up and running.</p>
+</div>
+<div class="paragraph">
+<p>Suppose your API layer is a java spring app which takes a little while to boot, you don&#8217;t want your frontend service to be up too soon without the API ready.</p>
+</div>
+<div class="paragraph">
+<p>There&#8217;s a few tricks to manage the startup order<br>
+They all rely on way to start the process in the container</p>
+</div>
+<div class="sect2">
+<h3 id="_wait_for_it">wait-for-it</h3>
+<div class="paragraph">
+<p>Wrap your</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dockerfile hljs" data-lang="dockerfile">version: "2"
+services:
+  web:
+    build: .
+    ports:
+      - "80:8000"
+    depends_on:
+      - "db"
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "app.py"]
+  db:
+    image: postgres</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="sect2">
+<h3 id="_dockerize">dockerize</h3>
+<div class="paragraph">
+<p>Dockerize is a utility to simplify running applications in docker containers. It allows you to:</p>
+</div>
+<div class="listingblock">
+<div class="title">in Dockerfile :</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dockerfile hljs" data-lang="dockerfile">CMD dockerize
+     -template /etc/nginx/nginx.tmpl:/etc/nginx/nginx.conf
+     -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log
+     -wait tcp://web:8000 nginx</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">in docker-compose :</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">web:
+  command: [
+    "dockerize",
+      "-template /etc/nginx/nginx.tmpl:/etc/nginx/nginx.conf",
+      "-stdout /var/log/nginx/access.log",
+      "-stderr /var/log/nginx/error.log",
+      "-wait tcp://web:8000 nginx"
+   ]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Wait for other services to be available using TCP, HTTP(S)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ dockerize -wait tcp://db:5432 -wait http://web:80
+            -wait file:///tmp/generated-file
+            -timeout 10s</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Tail multiple log files to stdout and/or stderr</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ dockerize -stdout info.log -stdout perf.log -stderr error.log</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Generate configuration files at container startup time</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">$ dockerize -template template1.tmpl:file1.cfg
+            -template template2.tmpl:file3</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>from templates and container environment variables</p>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><table class="tableblock frame-none grid-none stripes-none stretch">
@@ -1161,8 +1283,70 @@ Run admin/management tasks as one-off processes</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="sect1">
 <h2 id="_dockerfile_things">Dockerfile Things</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_carefully_consider_whether_to_use_a_public_image">Carefully consider whether to use a public image</h3>
 <div class="paragraph">
-<p>don&#8217;t be too much stupid</p>
+<p>Only trust official image from docker hub.
+If you like an untrusted image, prefere copying the dockerfile and maintain it like that, it will protect from docker image change that would have suspicious activity.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optimize_for_the_docker_build_cache">Optimize for the Docker build cache</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>use the same base image as much as possible</p>
+</li>
+<li>
+<p>keep the same step order accross your dockerfile</p>
+</li>
+<li>
+<p>also means your have to share the build context in your CI</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_build_the_smallest_image_possible">Build the smallest image possible</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>merge you command into a signe RUN command</p>
+</li>
+<li>
+<p>avoid switching context in the image build</p>
+<div class="ulist">
+<ul>
+<li>
+<p>don&#8217;t change USER back and forth</p>
+</li>
+<li>
+<p>don&#8217;t set multiple ENV, use envfile</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>to help you can use multi stage build when needed</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_remove_unnecessary_tools">Remove unnecessary tools</h3>
+<div class="paragraph">
+<p>Don&#8217;t give attacker tools and permission they could use like netcat, curl</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Compile apps in a single binary file, and add it to a scratch image.</p>
+</li>
+<li>
+<p>Run container in read-only mode with <code>--read-only</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div></div></td>
@@ -1170,23 +1354,143 @@ Run admin/management tasks as one-off processes</p>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="sect1">
 <h2 id="_multistage_build">Multistage Build</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Multistage build is a way to decouple build container that produce a binary and the container that runs this binary.</p>
+</div>
+<div class="sect3">
+<h4 id="_dockerfile_2">Dockerfile</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-dockerfile hljs" data-lang="dockerfile">FROM golang:1.7.3 as builder <i class="conum" data-value="1"></i><b>(1)</b>
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html
+COPY app.go . <i class="conum" data-value="2"></i><b>(2)</b>
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app . <i class="conum" data-value="3"></i><b>(3)</b>
 
+FROM alpine:latest <i class="conum" data-value="4"></i><b>(4)</b>
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /go/src/github.com/alexellis/href-counter/app . <i class="conum" data-value="5"></i><b>(5)</b>
+CMD ["./app"] <i class="conum" data-value="6"></i><b>(6)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>named target (as) to use in <em>futur</em> target</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>copy your code in the container to build</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>build a single binary</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>2nd target, it will be the base image for the produced image</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>copy the binary from the first image to the second image</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>run target is the copied binary</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_launching_the_build">Launching the build</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">docker build -t nsa/gotest:latest .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result 10MB image instead of 700MB well worth the hassle!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shelldocker hljs" data-lang="shelldocker">REPOSITORY          TAG                 IMAGE ID            SIZE
+nsa/gotest          latest              bf19b53c1189        10.6MB
+&lt;none&gt;              &lt;none&gt;              bf63bcebbf0d        695MB</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>still need to remove the <em>ghost</em> image</p>
+</div>
+</div>
 </div>
 </div></div></td>
 </tr>
 </tbody>
 </table></div></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Talanlabs publicity</p>
+<td class="tableblock halign-right valign-top"><div class="content"><div class="paragraph">
+<p>&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br>
+&#160;<br></p>
+</div>
+<table class="tableblock frame-none grid-none stripes-none stretch">
+<colgroup>
+<col style="width: 66.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="pictures/cheatsheet_talanlabs.png" alt="CheatSheet" width="301" height="200">
+</div>
 </div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="pictures/docker.png" alt="Docker" width="300" height="200">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-08-29 16:51:16 CEST
+Last updated 2018-08-31 19:02:32 CEST
 </div>
 </div>
 <link rel="stylesheet" href="highlight/styles/github.min.css">

@@ -5,6 +5,10 @@
 
 :page-background-image: pictures/background-3.png
 
+// links
+:clair-link: https://github.com/coreos/clair/ 
+:notary-link: https://github.com/docker/notary
+
 //= Docker Cheat Sheet
 //Author Name
 // other attributes
@@ -48,7 +52,44 @@ a| include::docker-cli-3.adoc[]
 a| include::container-bestpractices.adoc[]
 |
 a| include::docker-compose-bestpractices.adoc[]
-a| include::dockerfile-bestpractices.adoc[]
+a| include::dockerfile-bestpractices-1.adoc[]
 | 
-| Talanlabs publicity
+>a| 
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+{nbsp} +
+
+[frame=none, grid=none, stripes="none", cols="4h,1,1"]
+!===
+!
+a! image::cheatsheet_talanlabs.png[CheatSheet,301,200]
+a! image::docker.png[Docker,300,200]
+!===
 |===

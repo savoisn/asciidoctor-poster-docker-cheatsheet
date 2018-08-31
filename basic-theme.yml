@@ -2,12 +2,13 @@ base:
   font_color: #333333
   font_family: Roboto
   font_size: 12
+  line_height: $base_line_height_length / $base_font_size
 
 vertical_spacing: $base_line_height_length
 
 page:
   layout: landscape
-  margin: [0.51in, 0.5in, 0.25in, 0.5in]
+  margin: [0.4in, 0.5in, 0.0in, 0.5in]
   size: A2
 
 heading:
@@ -31,8 +32,12 @@ code:
   padding: 2
 
 conum:
-  font_color: #999999
+  font_color: #444444
   font_family: M+ 1mn
+  line_height: 1.15
+
+outline_list:
+  item_spacing: 3
 
 block:
   margin_bottom: 6

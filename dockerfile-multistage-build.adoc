@@ -1,2 +1,43 @@
 == Multistage Build
 
+Multistage build is a way to decouple build container that produce a binary and the container that runs this binary.
+
+==== Dockerfile
+
+[source, dockerfile]
+----
+FROM golang:1.7.3 as builder <1>
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go . <2>
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app . <3>
+
+FROM alpine:latest <4>
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /go/src/github.com/alexellis/href-counter/app . <5>
+CMD ["./app"] <6>
+----
+<1> named target (as) to use in _futur_ target
+<2> copy your code in the container to build
+<3> build a single binary
+<4> 2nd target, it will be the base image for the produced image
+<5> copy the binary from the first image to the second image
+<6> run target is the copied binary
+
+==== Launching the build
+[source, shelldocker]
+----
+docker build -t nsa/gotest:latest .
+----
+
+Result 10MB image instead of 700MB well worth the hassle! 
+
+[source, shelldocker]
+----
+REPOSITORY          TAG                 IMAGE ID            SIZE
+nsa/gotest          latest              bf19b53c1189        10.6MB
+<none>              <none>              bf63bcebbf0d        695MB
+----
+
+still need to remove the _ghost_ image

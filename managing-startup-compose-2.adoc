@@ -1,0 +1,45 @@
+=== dockerize
+
+Dockerize is a utility to simplify running applications in docker containers. It allows you to:
+
+.in Dockerfile : 
+[source, dockerfile]
+----
+CMD dockerize 
+     -template /etc/nginx/nginx.tmpl:/etc/nginx/nginx.conf 
+     -stdout /var/log/nginx/access.log -stderr /var/log/nginx/error.log 
+     -wait tcp://web:8000 nginx
+----
+.in docker-compose :
+[source, yaml]
+----
+web:
+  command: [
+    "dockerize",
+      "-template /etc/nginx/nginx.tmpl:/etc/nginx/nginx.conf",
+      "-stdout /var/log/nginx/access.log",
+      "-stderr /var/log/nginx/error.log",
+      "-wait tcp://web:8000 nginx"
+   ]
+----
+
+.Wait for other services to be available using TCP, HTTP(S)
+[source, shelldocker]
+----
+$ dockerize -wait tcp://db:5432 -wait http://web:80 
+            -wait file:///tmp/generated-file
+            -timeout 10s
+----
+
+.Tail multiple log files to stdout and/or stderr 
+[source, shelldocker]
+----
+$ dockerize -stdout info.log -stdout perf.log -stderr error.log
+----
+.Generate configuration files at container startup time
+[source, shelldocker]
+----
+$ dockerize -template template1.tmpl:file1.cfg 
+            -template template2.tmpl:file3
+----
+from templates and container environment variables

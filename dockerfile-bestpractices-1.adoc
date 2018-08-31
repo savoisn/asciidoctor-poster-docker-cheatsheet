@@ -1,0 +1,36 @@
+
+[frame=none, grid=none, stripes="none", cols="49a,~,49a"]
+!===
+! 
+== Dockerfile Things
+
+=== Carefully consider whether to use a public image
+
+Only trust official image from docker hub.
+If you like an untrusted image, prefere copying the dockerfile and maintain it like that, it will protect from docker image change that would have suspicious activity.
+
+=== Optimize for the Docker build cache
+
+* use the same base image as much as possible
+* keep the same step order accross your dockerfile
+* also means your have to share the build context in your CI
+
+=== Build the smallest image possible
+
+* merge you command into a signe RUN command
+* avoid switching context in the image build
+  - don't change USER back and forth
+  - don't set multiple ENV, use envfile
+* to help you can use multi stage build when needed
+
+=== Remove unnecessary tools
+
+Don't give attacker tools and permission they could use like netcat, curl
+
+* Compile apps in a single binary file, and add it to a scratch image.
+* Run container in read-only mode with `--read-only`
+
+!
+! include::dockerfile-multistage-build.adoc[]
+
+!===
