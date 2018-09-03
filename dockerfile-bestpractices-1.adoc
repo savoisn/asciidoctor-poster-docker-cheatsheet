@@ -17,12 +17,15 @@ If you like an untrusted image, prefere copying the dockerfile and maintain it l
 
 === Build the smallest image possible
 
-* merge you command into a signe RUN command
-* avoid switching context in the image build
+Merge you command into a signe RUN command
+
+.Avoid switching context in the image build
   - don't change USER back and forth
   - don't set multiple ENV, use envfile
-* use alpine or even distroless images
-* to help you can use multi stage build when needed
+
+Use alpine or even distroless images
+
+To help you can use multi stage build when needed
 
 === Remove unnecessary tools
 
