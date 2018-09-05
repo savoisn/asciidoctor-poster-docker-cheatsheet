@@ -8,7 +8,7 @@
 .Mounting a local Directory on a container
 [source, shelldocker]
 ----
-$ docker run -V myFolder//data myContainer
+$ docker run -v myFolder:/data myContainer
 ----
 
 .Create a local volume
@@ -20,7 +20,7 @@ $ docker volume create --name myVolume
 .Mounting a volume on a container
 [source, shelldocker]
 ----
-$ docker run -V myVolume:/data myContainer
+$ docker run -v myVolume:/data myContainer
 ----
 
 .Destroy a volume
