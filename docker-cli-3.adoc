@@ -46,7 +46,7 @@ $ docker network create myNetwork
 .Attach a container to a Network on startup
 [source, shelldocker]
 ----
-$ docker run --net myNetwork
+$ docker run --net myNetwork myContainer
 ----
 
 .Connect a running container to a network
