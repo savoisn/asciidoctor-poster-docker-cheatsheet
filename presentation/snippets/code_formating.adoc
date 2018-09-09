@@ -1,0 +1,12 @@
+[source,javascript,subs="+quotes,+macros"]
+-----
+const myClosure = (req, res, err) => {
+  if(err)
+    **console.log("I AM ERROR and BOLD");**
+  else if(!req)
+    **console**.log("this have no sence __**at all**__");
+  else 
+    console.log("I am ok and not that bold");
+}
+-----
+

@@ -1,0 +1,34 @@
+.reveal h1 {
+  font-size: 2em; }
+
+.reveal h2 {
+  font-size: 1.4em; }
+
+.reveal h3 {
+  font-size: 1.1em; }
+
+.reveal h4 {
+  font-size: 0.9em; }
+
+.reveal h1 {
+  text-shadow: none; }
+
+.reveal p {
+  margin: 10px 0;
+  font-size: 0.9em;
+  line-height: 1.1; }
+
+.reveal .slides > section{
+  padding: 0px;
+}
+
+.tableblock, .tableblock .ulist {
+  line-height: 1.0; 
+}
+.tableblock td{
+  padding:0.1em 0.2em 0.1em 0.2em;
+}
+/*.reveal .slides > section > section{*/
+  /*border: 1px solid red;*/
+  /*padding: 0px, 0px;*/
+/*}*/

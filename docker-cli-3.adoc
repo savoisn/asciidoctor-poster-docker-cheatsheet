@@ -8,7 +8,7 @@
 .Mounting a local Directory on a container
 [source, shelldocker]
 ----
-$ docker run -V myFolder//data myContainer
+$ docker run -v myFolder:/data myContainer
 ----
 
 .Create a local volume
@@ -20,7 +20,7 @@ $ docker volume create --name myVolume
 .Mounting a volume on a container
 [source, shelldocker]
 ----
-$ docker run -V myVolume:/data myContainer
+$ docker run -v myVolume:/data myContainer
 ----
 
 .Destroy a volume
@@ -46,7 +46,7 @@ $ docker network create myNetwork
 .Attach a container to a Network on startup
 [source, shelldocker]
 ----
-$ docker run --net myNetwork
+$ docker run --net myNetwork myContainer
 ----
 
 .Connect a running container to a network

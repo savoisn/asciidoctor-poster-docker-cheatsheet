@@ -9,13 +9,13 @@ look at asciidoctor-pdf installation guide
 
 `asciidoctor-pdf -r ./theme/custom.rb -r ./theme/shelldocker.rb -a pdf-style=basic-theme.yml -a pdf-fontsdir=fonts docker.adoc`
 
+== Building HTML: 
+
+`asciidoctor *.adoc`
+
 == Developping with livereload and all that : 
 
 watching building and livereloading:
 `guard start`
-
-building PDF:
-`./node_modules/.bin/nodemon --exec "asciidoctor-pdf -r ./theme/custom.rb -r ./theme/shelldocker.rb -a pdf-style=basic-theme.yml -a pdf-fontsdir=fonts docker.adoc" -e html
-`
 
 
