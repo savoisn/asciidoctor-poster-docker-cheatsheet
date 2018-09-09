@@ -21,7 +21,7 @@ $ docker run -it ubuntu bash
 .Start a container and remove once stopped
 [source, shelldocker]
 ----
-$ docker run -rm jenkins
+$ docker run --rm jenkins
 ----
 
 .Expose a port from the container on the host

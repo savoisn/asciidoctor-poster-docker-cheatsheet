@@ -8,25 +8,25 @@
 .Build an image from a Dockerfile in same dir
 [source, shelldocker]
 ----
-$ docker build -t myImage .
+$ docker build -t my-image .
 ----
 
 .Force rebuild an image
 [source, shelldocker]
 ----
-$ docker build -t myImage --no-cache .
+$ docker build -t my-image --no-cache .
 ----
 
 .Create an image from a container
 [source, shelldocker]
 ----
-$ docker commit sha123123 myNewImage
+$ docker commit sha123123 my-image
 ----
 
 .Remove an image
 [source, shelldocker]
 ----
-$ docker rmi myNewImage
+$ docker rmi my-image
 ----
 
 == Container Management
