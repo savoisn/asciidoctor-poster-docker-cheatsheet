@@ -1,7 +1,9 @@
 :source-highlighter: highlightjs
+:experimental:
 :icons: font
 
-:customcss: "themes/mozilla-dark.css"
+//:customcss: ./themes/mozilla-dark.css
+:customcss: ./themes/nsa-theme.css
 
 = Un Poster avec AsciiDoctor?
 
@@ -94,16 +96,107 @@ first.adoc first.html
 
 image::images/first_document-2.png[]
 
-== Deeper in the markup language
+== Deeper in the markup language 1
 
-[cols="50a,50a"]
-|====
-|
+[frame=all, grid=all, stripes="none", cols="4,3"]
+|===
+a| 
 [source, AsciiDoc]
 ----
-.block title
+include::./snippets/bold_italic.adoc[]
 ----
-|====
+a| 
+include::./snippets/bold_italic.adoc[]
+a| 
+[source, AsciiDoc]
+----
+include::./snippets/list.adoc[]
+----
+a| 
+include::./snippets/list.adoc[]
+a| 
+[source, AsciiDoc]
+----
+include::./snippets/tables.adoc[]
+----
+a| 
+include::./snippets/tables.adoc[]
+|===
+
+=== Deeper in the markup language 2
+
+[frame=all, grid=all, stripes="none", cols="4,3"]
+|===
+a| 
+[source, AsciiDoc]
+----
+include::/snippets/include.adoc[]
+----
+a| 
+include::./snippets/list.adoc[]
+a|
+[source, AsciiDoc]
+----
+include::/snippets/replacement.adoc[]
+----
+a|
+include::/snippets/replacement.adoc[]
+a|
+[source, AsciiDoc]
+----
+include::/snippets/substitution.adoc[]
+----
+a|
+include::/snippets/substitution.adoc[]
+|===
+
+=== Deeper in the markup language 3
+[frame=all, grid=all, stripes="none", cols="1"]
+|===
+a| 
+[source, AsciiDoc]
+----
+include::/snippets/code_formating.adoc[]
+----
+a| 
+include::/snippets/code_formating.adoc[]
+|===
 
 
+=== Deeper in the markup language 4
+[frame=all, grid=all, stripes="none", cols="1"]
+|===
+a| 
+[source, AsciiDoc]
+----
+include::/snippets/code_callouts.adoc[]
+|===
+image::images/callout.png[]
 
+=== Deeper in the markup language 5
+[frame=all, grid=all, stripes="none", cols="1"]
+|===
+a| 
+[source, AsciiDoc]
+----
+include::/snippets/keyboard_shortcuts.adoc[]
+----
+a| 
+include::/snippets/keyboard_shortcuts.adoc[]
+|===
+image::images/Keys.png[]
+
+=== Deeper in the markup language 6
+[frame=all, grid=all, stripes="none", cols="1"]
+|===
+a| 
+[source, AsciiDoc]
+----
+include::/snippets/links.adoc[]
+----
+a| 
+include::/snippets/links.adoc[]
+|===
+
+
+== Workflow Fun !

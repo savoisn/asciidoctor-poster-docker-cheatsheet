@@ -1,0 +1,12 @@
+for books : https://asciidoctor.org/ 
+
+:hide-uri-scheme:
+
+for technical web : https://asciidoctor.org/
+
+
+for blogs and non technical web : 
+https://asciidoctor.org/[AsciiDoctor Website]
+
+
+

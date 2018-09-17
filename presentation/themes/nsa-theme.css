@@ -28,6 +28,10 @@
 .tableblock td{
   padding:0.1em 0.2em 0.1em 0.2em;
 }
+
+.code{
+  font-size:0.9em;
+}
 /*.reveal .slides > section > section{*/
   /*border: 1px solid red;*/
   /*padding: 0px, 0px;*/

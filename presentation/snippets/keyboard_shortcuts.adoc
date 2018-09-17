@@ -1,0 +1,2 @@
+Press kbd:[F11] to get a Hello World! +
+Press kbd:[Ctrl+Shift+s] to Save!

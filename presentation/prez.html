@@ -1,8 +1,8 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Un Poster avec AsciiDoctor?</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/solarized.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><link href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Un Poster avec AsciiDoctor?</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>var link = document.createElement( 'link' );
 link.rel = 'stylesheet';
 link.type = 'text/css';
-link.href = window.location.search.match( /print-pdf/gi ) ? "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/pdf.css" : "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/print/paper.css";
-document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/html5shiv.js"></script><![endif]--><link rel="stylesheet" href=""themes/mozilla-dark.css""></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Un Poster avec AsciiDoctor?</h1><div class="preamble"><div class="paragraph"><p>Facile?</p></div></div></section>
+link.href = window.location.search.match( /print-pdf/gi ) ? "reveal.js/css/print/pdf.css" : "reveal.js/css/print/paper.css";
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if lt IE 9]><script src="reveal.js/lib/js/html5shiv.js"></script><![endif]--><link rel="stylesheet" href="./themes/nsa-theme.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title"><h1>Un Poster avec AsciiDoctor?</h1><div class="preamble"><div class="paragraph"><p>Facile?</p></div></div></section>
 <section id="asciidoctor"><h2>AsciiDoctor</h2><div class="paragraph"><p>Le grand frère de Markdown</p></div>
 <div class="paragraph"><p>Rendu automatiquement par github</p></div>
 <div class="ulist"><div class="title">Plein de format de sorti possible:</div><ul><li class="fragment"><p>html</p></li><li class="fragment"><p>man</p></li><li class="fragment"><p>dockbook</p></li><li class="fragment"><p>pdf :-)</p></li><li class="fragment"><p>revealJS (cette prez)</p></li><li class="fragment"><p>bespokeJS</p></li><li class="fragment"><p>etc&#8230;&#8203;</p></li></ul></div></section>
@@ -15,7 +15,12 @@ Twitter : @nicosavois</p></div></section>
 <section id="donc_une_cheat_sheet_format_poster"><h2>Donc une cheat sheet format poster !</h2><div class="paragraph"><p>Mon excuse pour apprendre AsciiDoctor</p></div>
 <div class="paragraph"><p>Une super experience</p></div>
 <aside class="notes"><div class="paragraph"><p>Actually things aren&#8217;t that bad</p></div></aside></section>
-<section><section id="premier_document"><h2>Premier Document</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">= Un Poster avec AsciiDoctor?
+<section><section id="premier_document"><h2>Premier Document</h2><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">:source-highlighter: highlightjs
+:imagesdir: pictures
+:icons: font
+:experimental:
+
+= Un Poster avec AsciiDoctor?
 
 Facile?
 
@@ -25,10 +30,79 @@ Le grand frère de Markdown
 
 * brillant
 * great taste
-* great value for the money</code></pre></div></div><div class="listingblock"><div class="title">shell commande</div><div class="content"><pre class="highlight"><code data-noescape class="shell language-shell">-&gt; % asciidoctor first.adoc
+* great value for the money
+
+
+Press kbd:[F11] to get a Hello World! +
+Press kbd:[Ctrl+Shift+s] to Save!
+
+[source,javascript,subs="+quotes,+macros"]
+-----
+const myClosure = (req, res, err) =&gt; {
+  if(err){ <i class="conum" data-value="1"></i><b>(1)</b>
+    console.log("I AM ERROR and BOLD"); <i class="conum" data-value="2"></i><b>(2)</b>
+  }
+}
+-----
+&lt;1&gt; most usefull error handling
+&lt;2&gt; best way to trap a bug !</code></pre></div></div><div class="listingblock"><div class="title">shell commande</div><div class="content"><pre class="highlight"><code data-noescape class="shell language-shell">-&gt; % asciidoctor first.adoc
 -&gt; % ls
 first.adoc first.html</code></pre></div></div></section><section id="le_rendu"><div class="imageblock" style=""><img src="images/first_document-2.png" alt="first document 2"></div></section></section>
-<section id="deeper_in_the_markup_language"><h2>Deeper in the markup language</h2><table class="tableblock frame-all grid-all" style="width:100%"></table></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<section><section id="deeper_in_the_markup_language_1"><h2>Deeper in the markup language 1</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:57.1428%"><col style="width:42.8572%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">my text in *bold* and _italic_</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>my text in <strong>bold</strong> and <em>italic</em></p></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">.block title of list
+- element 1
+- element 2</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><div class="ulist"><div class="title">block title of list</div><ul><li><p>element 1</p></li><li><p>element 2</p></li></ul></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">[cols="4,1"]
+!===
+! cell11 ! cell12
+! cell21 ! cell22
+!==</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:80%"><col style="width:20%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">cell11</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">cell12</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">cell21</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">cell22</p></td></tr></table></div></td></tr></table></section><section id="deeper_in_the_markup_language_2"><h2>Deeper in the markup language 2</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:57.1428%"><col style="width:42.8572%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">include::./snippets/list.adoc[]</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><div class="ulist"><div class="title">block title of list</div><ul><li><p>element 1</p></li><li><p>element 2</p></li></ul></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">It replace's =&gt; or (C) or (TM) +
+and much more...</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>It replace&#8217;s &#8658; or &#169; or &#8482;<br>
+and much more&#8230;&#8203;</p></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">:my-version: 12.3.4
+:old-version: 9.7.6
+only in {my-version} +
+disappeared in {old-version}</code></pre></div></div></div></td><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>only in 12.3.4<br>
+disappeared in 9.7.6</p></div></div></td></tr></table></section><section id="deeper_in_the_markup_language_3"><h2>Deeper in the markup language 3</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:100%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">[source,javascript,subs="+quotes,+macros"]
+-----
+const myClosure = (req, res, err) =&gt; {
+  if(err)
+    **console.log("I AM ERROR and BOLD");**
+  else if(!req)
+    **console**.log("this have no sence __**at all**__");
+  else
+    console.log("I am ok and not that bold");
+}
+-----</code></pre></div></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="javascript language-javascript">const myClosure = (req, res, err) =&gt; {
+  if(err)
+    <strong>console.log("I AM ERROR and BOLD");</strong>
+  else if(!req)
+    <strong>console</strong>.log("this have no sence <em><strong>at all</strong></em>");
+  else
+    console.log("I am ok and not that bold");
+}</code></pre></div></div></div></td></tr></table></section><section id="deeper_in_the_markup_language_4"><h2>Deeper in the markup language 4</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:100%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">[source,javascript,subs="+quotes,+macros"]
+-----
+const myClosure = (req, res, err) =&gt; {
+  if(err){ <i class="conum" data-value="1"></i><b>(1)</b>
+    console.log("I AM ERROR and BOLD"); <i class="conum" data-value="2"></i><b>(2)</b>
+  }
+}
+-----
+&lt;1&gt; most usefull error handling
+&lt;2&gt; best way to trap a bug !</code></pre></div></div></div></td></tr></table>
+<div class="imageblock" style=""><img src="images/callout.png" alt="callout"></div></section><section id="deeper_in_the_markup_language_5"><h2>Deeper in the markup language 5</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:100%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">Press kbd:[F11] to get a Hello World! +
+Press kbd:[Ctrl+Shift+s] to Save!</code></pre></div></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>Press <kbd>F11</kbd> to get a Hello World!<br>
+Press <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>s</kbd></span> to Save!</p></div></div></td></tr></table>
+<div class="imageblock" style=""><img src="images/Keys.png" alt="Keys"></div></section><section id="deeper_in_the_markup_language_6"><h2>Deeper in the markup language 6</h2><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:100%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre class="highlight"><code data-noescape class="AsciiDoc language-AsciiDoc">for books : https://asciidoctor.org/
+
+:hide-uri-scheme:
+
+for technical web : https://asciidoctor.org/
+
+
+for blogs and non technical web :
+https://asciidoctor.org/[AsciiDoctor Website]</code></pre></div></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p>for books : <a href="https://asciidoctor.org/" class="bare">https://asciidoctor.org/</a></p></div>
+<div class="paragraph"><p>for technical web : <a href="https://asciidoctor.org/" class="bare">asciidoctor.org/</a></p></div>
+<div class="paragraph"><p>for blogs and non technical web :
+<a href="https://asciidoctor.org/">AsciiDoctor Website</a></p></div></div></td></tr></table></section></section>
+<section id="workflow_fun"><h2>Workflow Fun !</h2></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
@@ -83,7 +157,7 @@ Reveal.initialize({
   previewLinks: false,
   // Theme (e.g., beige, black, league, night, serif, simple, sky, solarized, white)
   // NOTE setting the theme in the config no longer works in reveal.js 3.x
-  //theme: Reveal.getQueryHash().theme || 'solarized',
+  //theme: Reveal.getQueryHash().theme || 'black',
   // Transition style (e.g., none, fade, slide, convex, concave, zoom)
   transition: Reveal.getQueryHash().transition || 'slide',
   // Transition speed (e.g., default, fast, slow)
@@ -112,11 +186,11 @@ Reveal.initialize({
 
   // Optional libraries used to extend on reveal.js
   dependencies: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/zoom-js/zoom.js', async: true },
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.js', async: true }
+      { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+      { src: 'reveal.js/plugin/notes/notes.js', async: true }
   ]
 });</script></body></html>

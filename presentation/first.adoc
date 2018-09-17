@@ -1,3 +1,8 @@
+:source-highlighter: highlightjs 
+:imagesdir: pictures
+:icons: font
+:experimental:
+
 = Un Poster avec AsciiDoctor?
 
 Facile?
@@ -9,5 +14,20 @@ Le grand frère de Markdown
 * brillant
 * great taste
 * great value for the money
+
+
+Press kbd:[F11] to get a Hello World! +
+Press kbd:[Ctrl+Shift+s] to Save!
+
+[source,javascript,subs="+quotes,+macros"]
+-----
+const myClosure = (req, res, err) => {
+  if(err){ <1>
+    console.log("I AM ERROR and BOLD"); <2>
+  }
+}
+-----
+<1> most usefull error handling
+<2> best way to trap a bug !
 
 

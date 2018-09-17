@@ -429,6 +429,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
@@ -446,7 +447,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_asciidoctor">AsciiDoctor</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Le grand frere de Markdown</p>
+<p>Le grand frère de Markdown</p>
 </div>
 <div class="ulist">
 <ul>
@@ -454,20 +455,48 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>brillant</p>
 </li>
 <li>
-<p>awesome tooling</p>
-</li>
-<li>
 <p>great taste</p>
 </li>
+<li>
+<p>great value for the money</p>
+</li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Press <kbd>F11</kbd> to get a Hello World!<br>
+Press <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>s</kbd></span> to Save!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const myClosure = (req, res, err) =&gt; {
+  if(err){ <i class="conum" data-value="1"></i><b>(1)</b>
+    console.log("I AM ERROR and BOLD"); <i class="conum" data-value="2"></i><b>(2)</b>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>most usefull error handling</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>best way to trap a bug !</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-09-02 18:35:15 CEST
+Last updated 2018-09-13 08:52:47 CEST
 </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
 </body>
 </html>

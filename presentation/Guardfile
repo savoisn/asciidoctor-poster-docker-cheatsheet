@@ -3,16 +3,16 @@ require 'asciidoctor-revealjs'
 
 def buildIndex
   Asciidoctor.convert_file "prez.adoc", backend: "revealjs", header_footer: true, to_file: true, safe: :safe, out_file:"index.html",   attributes: {
-    'revealjs_theme' => 'solarized',
+    'revealjs_theme' => 'black',
     'revealjs_slideNumber' => 'true',
     'revealjs_history' => 'true',
-    'revealjsdir' => 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0',
+#    'revealjsdir' => 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0',
   }
 end
 
 def buildReveal
   Asciidoctor.convert_file "prez.adoc", backend: "revealjs", header_footer: true, to_file: true, safe: :safe,   attributes: {
-    'revealjs_theme' => 'solarized',
+    'revealjs_theme' => 'black',
     'revealjs_slideNumber' => 'true',
     'revealjs_history' => 'true',
   }
@@ -20,11 +20,9 @@ end
 
 guard 'shell' do
   buildReveal
-  buildIndex
  
   watch(/.*\.adoc$/) {|m|
     buildReveal
-    buildIndex
   }
 end
 
